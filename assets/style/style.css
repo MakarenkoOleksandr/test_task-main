@@ -1,0 +1,109 @@
+body {
+    overflow-x: hidden;
+}
+body.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 250vh;
+    background-color: rgba(0,0,0,.5);
+}
+
+.post-comment {
+    display: flex;
+    gap: 50px;
+}
+
+.post-comment > * {
+    border-radius: 10px;
+    
+}
+
+.post-comment__modal > * {
+    border-radius: 10px;
+}
+
+.post-comment__modal {
+    display: grid;
+    grid-template-areas:
+        "input input"
+        "submit cancel";
+    z-index: 999;
+    align-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 10vh;
+    min-width: 20vw;
+    background-color: green;
+    padding: 20px;
+    gap: 20px;
+    transition: opacity 0.5s ease-in;
+    overflow: hidden;
+}
+
+.post-comment__modal.active {
+    opacity: 1;
+}
+.post-comment__btn {
+    display: flex;
+    align-items: center;
+    background-color: #ed9220;
+    cursor: pointer;
+    border: 2px solid #f0f0f0;
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.74);
+    padding: 10px;
+    text-wrap: nowrap;
+    max-height: 35px;
+}
+
+.post-comment__btn:focus,
+.post-comment__submit:focus,
+.post-comment__cancel:focus {
+    outline: none;
+    opacity: 0.5;
+}
+
+.post-comment__input {
+    border-radius: 10px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.74);
+    border: 2px solid #ed9220;
+    grid-area: input;
+    padding: 10px;
+    outline: none;
+}
+
+.post-comment__submit {
+    max-height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ed9220;
+    cursor: pointer;
+    border: 2px solid #f0f0f0;
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.74);
+    padding: 10px;
+    grid-area: submit;
+}
+
+.post-comment__cancel {
+    max-height: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ed9220;
+    cursor: pointer;
+    border: 2px solid #f0f0f0;
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.74);
+    padding: 10px;
+    grid-area: cancel;
+}
